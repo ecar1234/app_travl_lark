@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      // showSemanticsDebugger: true,
+      debugShowCheckedModeBanner: false,
       title: 'app the clark',
       home: AppMain(),
     );
@@ -43,31 +45,26 @@ class _AppMainState extends State<AppMain> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-              // leading: Image(image: ),
-              ),
-          bottomNavigationBar: BottomNavigationBar(
-  backgroundColor: Colors.grey[300],
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home),label: "home"),
-              BottomNavigationBarItem(icon: Icon(Icons.leave_bags_at_home),label: "reservation"),
-              BottomNavigationBarItem(icon: Icon(Icons.percent),label: "coupon"),
-              BottomNavigationBarItem(icon: Icon(Icons.phonelink_ring),label: "myPage"),
-              BottomNavigationBarItem(icon: Icon(Icons.person),label: "myPage"),
-            ],
-            currentIndex: _currentIndex,
-            onTap: (int index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-          ),
-          body: _widgetOption.elementAt(_currentIndex)
-    ));
+        child: Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Colors.grey[300],
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              type: BottomNavigationBarType.fixed,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+                BottomNavigationBarItem(icon: Icon(Icons.leave_bags_at_home), label: "reservation"),
+                BottomNavigationBarItem(icon: Icon(Icons.percent), label: "coupon"),
+                BottomNavigationBarItem(icon: Icon(Icons.phonelink_ring), label: "myPage"),
+                BottomNavigationBarItem(icon: Icon(Icons.person), label: "myPage"),
+              ],
+              currentIndex: _currentIndex,
+              onTap: (int index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+            body: _widgetOption.elementAt(_currentIndex)));
   }
 }

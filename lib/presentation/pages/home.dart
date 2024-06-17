@@ -5,9 +5,26 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
-        child: Text("home")
+    return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: IconButton(
+            iconSize: 30.0,
+            onPressed: () {},
+            icon: const Icon(Icons.airplanemode_on),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              TextButton(onPressed: () {}, child: const Text("THE LARK")),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
