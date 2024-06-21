@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
           )
         ],
       ),
-      body: HomeMain(),
+      body: const HomeMain(),
     );
   }
 }
@@ -59,69 +59,124 @@ class HomeMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Expanded(
-              child: Column(children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width - 40.0) / 2,
-                        height: 100,
+        body: SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: <Widget>[
+            Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: (MediaQuery.of(context).size.width - 30.0) / 2,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
                         color: Colors.lightBlueAccent[200],
-                        child: const Center(child: Text("도서관")),
                       ),
+                      child: const Center(child: Text("도서관")),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width - 40.0) / 2,
-                        height: 100,
-                        color: Colors.deepPurpleAccent[100],
-                        child: const Center(child: Text("숙소")),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: (MediaQuery.of(context).size.width - 30.0) / 2,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.red[200],
                       ),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width - 40.0) / 3,
-                        height: 100,
+                      child: const Center(child: Text("accommodation")),
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: (MediaQuery.of(context).size.width - 40.0) / 3,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.green[200],
+                      ),
+                      child: const Center(child: Text("Restaurant")),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: (MediaQuery.of(context).size.width - 40.0) / 3,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.deepPurple[200],
+                      ),
+                      child: const Center(child: Text("Activity")),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: (MediaQuery.of(context).size.width - 40.0) / 3,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
                         color: Colors.lightBlueAccent[200],
-                        child: const Center(child: Text("도서관")),
                       ),
+                      child: const Center(child: Text("Piece")),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width - 40.0) / 3,
-                        height: 100,
-                        color: Colors.deepPurpleAccent[100],
-                        child: const Center(child: Text("숙소")),
-                      ),
+                  )
+                ],
+              ),
+            ]),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    "숙소 추전",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          // A fixed-height child.
+                          color: Colors.yellow.withOpacity(.5),
+                          height: 120.0,
+                          width: 100,
+                          alignment: Alignment.center,
+                          child: const Text('ssdf'),
+                        )
+                      ],
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width - 40.0) / 3,
-                        height: 100,
-                        color: Colors.deepPurpleAccent[100],
-                        child: const Center(child: Text("숙소")),
-                      ),
-                    )
-                  ],
-                ),
-              ]),
-            )));
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }

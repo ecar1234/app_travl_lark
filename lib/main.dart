@@ -51,9 +51,13 @@ class _AppMainState extends State<AppMain> {
               showSelectedLabels: false,
               showUnselectedLabels: false,
               type: BottomNavigationBarType.fixed,
+              selectedIconTheme: const IconThemeData(
+                size: 35.0,
+                color: Colors.black
+              ),
               items: const [
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-                BottomNavigationBarItem(icon: Icon(Icons.leave_bags_at_home), label: "reservation"),
+                BottomNavigationBarItem(icon: Icon(Icons.card_travel_rounded), label: "reservation"),
                 BottomNavigationBarItem(icon: Icon(Icons.percent), label: "coupon"),
                 BottomNavigationBarItem(icon: Icon(Icons.phonelink_ring), label: "myPage"),
                 BottomNavigationBarItem(icon: Icon(Icons.person), label: "myPage"),
