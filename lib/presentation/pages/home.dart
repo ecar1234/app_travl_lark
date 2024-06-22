@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -62,7 +61,7 @@ class HomeMain extends StatelessWidget {
         body: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           children: <Widget>[
             Column(children: [
@@ -72,7 +71,7 @@ class HomeMain extends StatelessWidget {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      width: (MediaQuery.of(context).size.width - 30.0) / 2,
+                      width: (MediaQuery.of(context).size.width - 40.0) / 2,
                       height: 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -84,7 +83,7 @@ class HomeMain extends StatelessWidget {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      width: (MediaQuery.of(context).size.width - 30.0) / 2,
+                      width: (MediaQuery.of(context).size.width - 40.0) / 2,
                       height: 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -143,36 +142,63 @@ class HomeMain extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const Text(
-                    "숙소 추전",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                    width: MediaQuery.of(context).size.width - 10,
+                    child: const Text(
+                      "숙소 추천",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 300,
+                        width: MediaQuery.of(context).size.width - 20,
+                        margin: const EdgeInsets.only(top: 10.0),
+                        child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            separatorBuilder: (context, idx) {
+                              return const SizedBox(
+                                width: 20.0,
+                              );
+                            },
+                            itemBuilder: (context, idx) {
+                              return Container(
+                                  width: 240,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 1.0), borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        width: 240,
+                                        decoration: const BoxDecoration(
+                                            color: Colors.grey,
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0))),
+                                        child: const Center(
+                                          child: Text("image"),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10.0,
+                                      ),
+                                    ],
+                                  ));
+                            },
+                            itemCount: 5),
+                      )
+                    ],
                   ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          // A fixed-height child.
-                          color: Colors.yellow.withOpacity(.5),
-                          height: 120.0,
-                          width: 100,
-                          alignment: Alignment.center,
-                          child: const Text('ssdf'),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             )
           ],
         ),
