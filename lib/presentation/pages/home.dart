@@ -7,49 +7,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 150,
-        elevation: 1.0,
-        shadowColor: Colors.black,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                iconSize: 25.0,
-                onPressed: () {},
-                icon: const Icon(Icons.airplanemode_on),
-              ),
-              TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "THE LARK",
-                    style: TextStyle(fontSize: 12.0, color: Colors.black),
-                  )),
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () {},
-              child: const Text(
-                "20000 D",
-                style: TextStyle(color: Colors.black),
-              )),
-          Container(
-            margin: const EdgeInsets.only(right: 15.0),
-            child: InkWell(
-              onTap: () {},
-              child: const CircleAvatar(
-                backgroundColor: Colors.cyan,
-              ),
-            ),
-          )
-        ],
-      ),
-      body: const HomeMain(),
+    return const Scaffold(
+      body: HomeMain(),
     );
   }
 }
@@ -162,6 +121,39 @@ Widget _recommendHotelContainer(Size size) {
           width: size.width - 10,
           child: const Text(
             "숙소 추천",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 300,
+              width: size.width - 20,
+              padding: const EdgeInsets.only(right: 10.0),
+              margin: const EdgeInsets.only(top: 10.0),
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, idx) {
+                    return const Gap(20.0);
+                  },
+                  itemBuilder: (context, idx) {
+                    return hotelContainer();
+                  },
+                  itemCount: 5),
+            )
+          ],
+        ),
+      ),
+      const Gap(20.0),
+      SizedBox(
+          width: size.width - 10,
+          child: const Text(
+            "프로모션",
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
